@@ -1,10 +1,16 @@
-name: games-test
+name: gallows-game
 
 entryPoint:
   - main.sc
 
 botEngine: v2
 language: ru
+
+injector:
+  slotfilling:
+    maxSlotRetries: 2
+    stopOnAnyIntent: true
+    stopOnAnyIntentThreshold: 0.2
 
 sts:
     noMatchThreshold: 0.2

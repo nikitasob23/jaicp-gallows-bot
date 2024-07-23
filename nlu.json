@@ -22,26 +22,27 @@
     }
   },
   "intents" : [ {
-    "path" : "/пока",
+    "path" : "/играем",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "пока"
+      "text" : "Играем"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
     "priority" : 0
   }, {
-    "path" : "/привет",
+    "path" : "/Буква",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ {
-      "text" : "привет"
-    } ],
+    "phrases" : [ ],
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
+    "slots" : [ ],
     "priority" : 0
   } ],
   "entities" : [ ],
