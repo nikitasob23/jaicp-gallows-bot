@@ -1,15 +1,17 @@
-name: zb-cailapub
+name: games-test
 
-entryPoint: main.sc
+entryPoint:
+  - main.sc
 
 botEngine: v2
 language: ru
 
-tests:
-  include:
-    - test.xml
+sts:
+    noMatchThreshold: 0.2
 
-nlp:
-  intentNoMatchThresholds:
-    phrases: 0.2
-    patterns: 0.2
+caila:
+    noMatchThreshold: 0.2
+
+dependencies:
+  - name: zenbot-common
+    type: module
