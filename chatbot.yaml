@@ -1,4 +1,4 @@
-name: gallows-game
+name: hangman-game
 
 entryPoint:
   - main.sc

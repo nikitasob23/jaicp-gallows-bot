@@ -22,11 +22,37 @@
     }
   },
   "intents" : [ {
-    "path" : "/играем",
+    "path" : "/Стоп",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Стоп"
+    }, {
+      "text" : "Останови"
+    }, {
+      "text" : "Стоп игра"
+    }, {
+      "text" : "Заканчивай"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Играем",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
       "text" : "Играем"
+    }, {
+      "text" : "играть"
+    }, {
+      "text" : "Давай"
+    }, {
+      "text" : "Да"
+    }, {
+      "text" : "Давай сыграем"
     } ],
     "classificationRules" : {
       "refs" : [ ]
