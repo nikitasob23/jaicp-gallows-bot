@@ -70,7 +70,7 @@ function initSession(session, hangmanGameData) {
     session.correctLetter = false
     session.startGame = true
     session.answer = "Кол-во букв в вашем слове: " + session.word.length + "\nСлово: " + formatMask(session.mask)
-    session.answer = session.answer + ".\nПодсказка: " + session.word
+    // session.answer = session.answer + ".\nПодсказка: " + session.word
 }
 
 function isLetter(input) {
