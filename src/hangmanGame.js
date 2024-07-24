@@ -1,4 +1,4 @@
-function tryToGuessWord(session, userInput) {
+function tryToGuess(session, userInput) {
     if (isLetter(userInput)) {
         tryToGuessLetter(session, userInput)
     } else {
@@ -10,7 +10,7 @@ function tryToGuessWord(session, userWord) {
     if (userWord == session.word) {
         win(session)
     } else {
-        session.answer = "Увы, вы не угадали..."
+        session.answer = "Увы, вы не угадали...\n Слово: " + formatMask(session.mask)
     }
     decrementTriesToGuess(session)
 } 
@@ -73,8 +73,8 @@ function initSession(session, hangmanGameData) {
     // session.answer = session.answer + ".\nПодсказка: " + session.word
 }
 
-function isLetter(input) {
-    return input.length == 1
+function isLetter(userInput) {
+    return userInput.length == 1
 }
 
 function formatMask(mask) {

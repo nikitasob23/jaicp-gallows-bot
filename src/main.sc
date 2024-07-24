@@ -46,7 +46,7 @@ theme: /
         event!: noMatch
         script:
             if ($session.startGame) {
-                tryToGuessWord($session, $request.query)
+                tryToGuess($session, $request.query)
             } else {
                 $session.answer = "Извините, я вас не понял. Если хотите сыграть в игру, напишите: играть"
             }
