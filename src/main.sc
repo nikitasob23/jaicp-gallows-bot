@@ -40,7 +40,7 @@ theme: /
     state: StopGame
         intent!: /Стоп
         script: $session.startGame = false
-        a: Хорошо, останавливаем игру, твое слово было: {{$session.word}}
+        a: Хорошо, останавливаем игру, твое слово было: {{$session.word}}. Если ты захочешь сыграть еще раз, просто отправь мне сообщение: играть
 
     state: NoMatch
         event!: noMatch
