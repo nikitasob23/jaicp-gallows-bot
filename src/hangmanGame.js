@@ -12,12 +12,22 @@ function tryToGuessWord(session, userWord) {
     } else {
         session.answer = "Увы, вы не угадали...\n Слово: " + formatMask(session.mask)
     }
-    decrementTriesToGuess(session)
+    
+    if (userWordExists(session.userWords, userWord)) {
+        session.answer = "Вы уже называли это слово, ответ не считается!\nСлово: " + formatMask(session.mask)
+    } else {
+        session.userWords.unshift(userWord)
+        session.triesToGuess--
+    }
+    
+    checkTriesToGuess(session)
 } 
 
 function tryToGuessLetter(session, userLetter) {
-    var haveNotLettersToGuess = true;
+    var haveNotLettersToGuess = true
+    var letterAlreadyGuess = false
     var i = 0
+    
     while (i < session.word.length) {
         if (session.word[i] == userLetter) {
             session.mask[i] = userLetter
@@ -38,11 +48,19 @@ function tryToGuessLetter(session, userLetter) {
     }
     session.answer = session.answer + formatMask(session.mask)
     
-    decrementTriesToGuess(session)
+    if (userLetterExists(session.userLetters, userLetter)) {
+        session.answer = "Вы уже называли эту букву, ответ не считается!\nСлово: " + formatMask(session.mask)
+    } else {
+        session.userLetters.unshift(userLetter)
+        session.triesToGuess--
+    }
+    
+    checkTriesToGuess(session, userLetter)
+    session.correctLetter = false
+    letterAlreadyGuess = false
 }
 
-function decrementTriesToGuess(session) {
-    session.triesToGuess--
+function checkTriesToGuess(session, userInput) {
     
     if (session.triesToGuess == 2) {
         session.answer = "У вас осталось 2 попытки.\n" + session.answer
@@ -51,6 +69,14 @@ function decrementTriesToGuess(session) {
     } else if (session.triesToGuess == 0) {
         lose(session)
     }
+}
+
+function userLetterExists(userLetters, userLetter) {
+    return userLetters != null && userLetters.indexOf(userLetter) != -1
+}
+
+function userWordExists(userWords, userWord) {
+    return userWords != null && userWords.indexOf(userWord) != -1
 }
 
 function win(session) {
@@ -73,6 +99,8 @@ function initSession(session, hangmanGameData) {
     session.triesToGuess = 6
     session.correctLetter = false
     session.startGame = true
+    session.userLetters = []
+    session.userWords = []
     session.answer = "Кол-во букв в вашем слове: " + session.word.length + "\nСлово: " + formatMask(session.mask)
     // session.answer = session.answer + ".\nПодсказка: " + session.word
 }
