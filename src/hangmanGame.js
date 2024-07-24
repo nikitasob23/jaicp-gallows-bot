@@ -54,13 +54,17 @@ function decrementTriesToGuess(session) {
 }
 
 function win(session) {
-    session.answer = "Поздравяю, вы выиграли!\nСлово: "
+    session.answer = "Поздравяю, вы выиграли!\nСлово: " + printToPlayAgain()
     session.startGame = false
 }
 
 function lose(session) {
-    session.answer = "Увы, вы проиграли!\nВаше слово было: " + session.word
+    session.answer = "Увы, вы проиграли!\nВаше слово было: " + session.word + printToPlayAgain()
     session.startGame = false
+}
+
+function printToPlayAgain() {
+    return "\nЕсли ты захочешь сыграть еще раз, просто отправь мне сообщение: играть"
 }
 
 function initSession(session, hangmanGameData) {
