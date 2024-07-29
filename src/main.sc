@@ -44,7 +44,9 @@ theme: /
         
     state: AcceptFile
         event!: fileEvent
-        a: Это что, кружок или видео?!
+        a: Это что, кружок или видео?! Оно будет доступно по ссылке:
+        script:
+            $request.data.eventData.forEach(function (file) { $reactions.answer(file.url); });
 
     state: NoMatch
         event!: noMatch
